@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="theme-color" content="#2196f3" />
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Minesweeper">
+
+  <title>マインスイーパー</title>
+
+  <!-- PWAマニフェストとアイコン -->
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icon192.png" />
+  <link rel="apple-touch-icon" href="icon192.png" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>マインスイーパー</h1>
+
+  <div class="controls">
+    <!-- 難易度などのUI -->
+  </div>
+
+  <div id="flags-left"></div>
+  <div id="timer"></div>
+  <div id="board"></div>
+  <div id="message"></div>
+
+  <script src="script.js"></script>
+
+  <!-- Service Worker 登録スクリプト -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./service-worker.js')
+          .then(reg => console.log("✅ Service Worker registered:", reg.scope))
+          .catch(err => console.error("❌ Service Worker registration failed:", err));
+      });
+    }
+  </script>
+</body>
+</html>
