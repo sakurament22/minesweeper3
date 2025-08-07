@@ -20,7 +20,31 @@
   <h1>マインスイーパー</h1>
 
   <div class="controls">
-    <!-- 難易度などのUI -->
+    <label>難易度:
+      <select id="difficulty">
+        <option value="easy">簡単</option>
+        <option value="medium">普通</option>
+        <option value="hard">難しい</option>
+        <option value="custom">カスタム</option>
+      </select>
+    </label>
+
+    <div id="custom-settings">
+      横: <input type="number" id="custom-width" value="10" min="5" max="50">
+      縦: <input type="number" id="custom-height" value="10" min="5" max="50">
+      地雷数: <input type="number" id="mine-count" value="10" min="1">
+    </div>
+
+    <label>制限時間:
+      <select id="time-limit">
+        <option value="0">なし</option>
+        <option value="60">1分</option>
+        <option value="180">3分</option>
+        <option value="300">5分</option>
+      </select>
+    </label>
+
+    <button onclick="startGame()">スタート</button>
   </div>
 
   <div id="flags-left"></div>
